@@ -1,7 +1,6 @@
 package com.github.youssfbr.voll.med.api.enderecos;
 
-public record DadosEndereco(
-
+public record DadosEnderecoDTO(
         String logradouro ,
         String bairro ,
         String cep ,

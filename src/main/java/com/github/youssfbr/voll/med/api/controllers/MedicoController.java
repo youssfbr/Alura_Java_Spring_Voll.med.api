@@ -1,17 +1,21 @@
 package com.github.youssfbr.voll.med.api.controllers;
 
-import com.github.youssfbr.voll.med.api.medicos.DadosCadastroMedico;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.github.youssfbr.voll.med.api.medicos.DadosCadastroMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.IMedicoService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/medicos")
 public class MedicoController {
 
-    @GetMapping
-    public void cadastrar(@RequestBody DadosCadastroMedico dados) {
-        System.out.println(dados);
+    private final IMedicoService medicoService;
+
+    public MedicoController(IMedicoService medicoService) {
+        this.medicoService = medicoService;
+    }
+
+    @PostMapping
+    public void cadastrar(@RequestBody DadosCadastroMedicoDTO dados) {
+        medicoService.cadastrar(dados);
     }
 }
