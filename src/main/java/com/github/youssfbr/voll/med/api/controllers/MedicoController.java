@@ -2,6 +2,7 @@ package com.github.youssfbr.voll.med.api.controllers;
 
 import com.github.youssfbr.voll.med.api.medicos.DadosCadastroMedicoDTO;
 import com.github.youssfbr.voll.med.api.medicos.IMedicoService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,7 @@ public class MedicoController {
     }
 
     @PostMapping
-    public void cadastrar(@RequestBody DadosCadastroMedicoDTO dados) {
+    public void cadastrar(@RequestBody @Valid DadosCadastroMedicoDTO dados) {
         medicoService.cadastrar(dados);
     }
 }
