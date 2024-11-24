@@ -6,6 +6,8 @@ import jakarta.validation.constraints.*;
 
 public record DadosCadastroMedicoDTO(
 
+        Long id ,
+
         @NotBlank @Size(max = 100)
         String nome ,
 
