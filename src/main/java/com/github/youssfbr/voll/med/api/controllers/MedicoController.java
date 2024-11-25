@@ -40,11 +40,11 @@ public class MedicoController {
 
     @PutMapping
     public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
-        medicoService.atualizar(dados);
+        medicoService.atualizarInformacoes(dados);
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable Long id) {
+    public void remover(@PathVariable Long id) {
         medicoService.excluir(id);
     }
 }

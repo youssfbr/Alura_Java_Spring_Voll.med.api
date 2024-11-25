@@ -39,7 +39,7 @@ public class MedicoService implements IMedicoService {
 
     @Override
     @Transactional
-    public void atualizar(DadosAtualizacaoMedicoDTO dados) {
+    public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
         final Medico medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
     }
@@ -48,7 +48,7 @@ public class MedicoService implements IMedicoService {
     @Transactional
     public void excluir(Long id) {
         final Medico medico = medicoRepository.getReferenceById(id);
-        medico.excluir();
+        medico.inativar();
     }
 
 }
