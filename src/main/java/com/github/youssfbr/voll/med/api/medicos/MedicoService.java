@@ -19,14 +19,14 @@ public class MedicoService implements IMedicoService {
     @Override
     @Transactional(readOnly = true)
     public Page<DadosListagemMedicoDTO> paginar(Pageable paginacao) {
-        return medicoRepository.findAll(paginacao)
+        return medicoRepository.findAllPageByAtivoTrue(paginacao)
                 .map(DadosListagemMedicoDTO::new);
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<DadosListagemMedicoDTO> listar() {
-        return medicoRepository.findAll().stream()
+        return medicoRepository.findAllByAtivoTrue().stream()
                 .map(DadosListagemMedicoDTO::new)
                 .toList();
     }
@@ -42,6 +42,13 @@ public class MedicoService implements IMedicoService {
     public void atualizar(DadosAtualizacaoMedicoDTO dados) {
         final Medico medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+    }
+
+    @Override
+    @Transactional
+    public void excluir(Long id) {
+        final Medico medico = medicoRepository.getReferenceById(id);
+        medico.excluir();
     }
 
 }

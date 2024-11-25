@@ -11,4 +11,5 @@ public interface IMedicoService {
     List<DadosListagemMedicoDTO> listar();
     void cadastrar(DadosCadastroMedicoDTO dados);
     void atualizar(DadosAtualizacaoMedicoDTO dados);
+    void excluir(Long id);
 }

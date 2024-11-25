@@ -1,0 +1,3 @@
+alter table tb_medicos
+add whatsapp varchar(20) not null,
+    telefone varchar(20);

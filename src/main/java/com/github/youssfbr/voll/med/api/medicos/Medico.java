@@ -39,6 +39,8 @@ public class Medico {
     @Embedded
     private Endereco endereco;
 
+    private Boolean ativo;
+
     public Medico(DadosCadastroMedicoDTO dados) {
         nome = dados.nome();
         email = dados.email();
@@ -47,6 +49,7 @@ public class Medico {
         whatsapp =dados.whatsapp();
         telefone = dados.telefone();
         endereco = new Endereco(dados.endereco());
+        ativo = true;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
@@ -68,7 +71,7 @@ public class Medico {
         }
     }
 
-
-
-
+    public void excluir() {
+        ativo = false;
+    }
 }

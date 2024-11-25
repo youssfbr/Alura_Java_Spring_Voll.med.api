@@ -42,4 +42,9 @@ public class MedicoController {
     public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
         medicoService.atualizar(dados);
     }
+
+    @DeleteMapping("/{id}")
+    public void excluir(@PathVariable Long id) {
+        medicoService.excluir(id);
+    }
 }
