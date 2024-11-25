@@ -36,4 +36,12 @@ public class MedicoService implements IMedicoService {
     public void cadastrar(DadosCadastroMedicoDTO dados) {
         medicoRepository.save(new Medico(dados));
     }
+
+    @Override
+    @Transactional
+    public void atualizar(DadosAtualizacaoMedicoDTO dados) {
+        final Medico medico = medicoRepository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
+    }
+
 }

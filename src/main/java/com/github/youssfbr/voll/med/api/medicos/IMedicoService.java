@@ -10,4 +10,5 @@ public interface IMedicoService {
     Page<DadosListagemMedicoDTO> paginar(Pageable paginacao);
     List<DadosListagemMedicoDTO> listar();
     void cadastrar(DadosCadastroMedicoDTO dados);
+    void atualizar(DadosAtualizacaoMedicoDTO dados);
 }

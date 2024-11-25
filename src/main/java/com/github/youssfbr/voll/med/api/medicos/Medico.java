@@ -48,4 +48,27 @@ public class Medico {
         telefone = dados.telefone();
         endereco = new Endereco(dados.endereco());
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
+
+        if (dados.nome() != null) {
+            nome = dados.nome();
+        }
+
+        if (dados.whatsapp() != null) {
+            whatsapp = dados.whatsapp();
+        }
+
+        if (dados.telefone() != null) {
+            telefone = dados.telefone();
+        }
+
+        if (dados.endereco() != null) {
+            endereco.atualizarInformacoesEndereco(dados.endereco());
+        }
+    }
+
+
+
+
 }

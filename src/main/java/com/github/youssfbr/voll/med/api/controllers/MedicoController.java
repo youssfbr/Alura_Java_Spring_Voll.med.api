@@ -1,5 +1,6 @@
 package com.github.youssfbr.voll.med.api.controllers;
 
+import com.github.youssfbr.voll.med.api.medicos.DadosAtualizacaoMedicoDTO;
 import com.github.youssfbr.voll.med.api.medicos.DadosCadastroMedicoDTO;
 import com.github.youssfbr.voll.med.api.medicos.DadosListagemMedicoDTO;
 import com.github.youssfbr.voll.med.api.medicos.IMedicoService;
@@ -35,5 +36,10 @@ public class MedicoController {
     @PostMapping
     public void cadastrar(@RequestBody @Valid DadosCadastroMedicoDTO dados) {
         medicoService.cadastrar(dados);
+    }
+
+    @PutMapping
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
+        medicoService.atualizar(dados);
     }
 }
