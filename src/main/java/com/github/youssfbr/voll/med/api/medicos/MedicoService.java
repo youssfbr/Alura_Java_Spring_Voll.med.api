@@ -46,7 +46,7 @@ public class MedicoService implements IMedicoService {
 
     @Override
     @Transactional
-    public void excluir(Long id) {
+    public void remover(Long id) {
         final Medico medico = medicoRepository.getReferenceById(id);
         medico.inativar();
     }

@@ -45,6 +45,6 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")
     public void remover(@PathVariable Long id) {
-        medicoService.excluir(id);
+        medicoService.remover(id);
     }
 }

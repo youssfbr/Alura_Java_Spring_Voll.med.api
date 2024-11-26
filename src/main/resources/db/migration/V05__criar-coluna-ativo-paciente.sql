@@ -1,0 +1,2 @@
+ALTER TABLE tb_pacientes
+ADD COLUMN "ativo" BOOLEAN NOT NULL;
