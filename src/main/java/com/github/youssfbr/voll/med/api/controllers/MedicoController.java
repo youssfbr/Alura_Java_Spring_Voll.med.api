@@ -1,10 +1,10 @@
 package com.github.youssfbr.voll.med.api.controllers;
 
-import com.github.youssfbr.voll.med.api.medicos.IMedicoService;
-import com.github.youssfbr.voll.med.api.medicos.dtos.DadosAtualizacaoMedicoDTO;
-import com.github.youssfbr.voll.med.api.medicos.dtos.DadosCadastroMedicoDTO;
-import com.github.youssfbr.voll.med.api.medicos.dtos.DadosDetalhamentoMedicoDTO;
-import com.github.youssfbr.voll.med.api.medicos.dtos.DadosListagemMedicoDTO;
+import com.github.youssfbr.voll.med.api.domains.medicos.IMedicoService;
+import com.github.youssfbr.voll.med.api.domains.medicos.dtos.DadosAtualizacaoMedicoDTO;
+import com.github.youssfbr.voll.med.api.domains.medicos.dtos.DadosCadastroMedicoDTO;
+import com.github.youssfbr.voll.med.api.domains.medicos.dtos.DadosDetalhamentoMedicoDTO;
+import com.github.youssfbr.voll.med.api.domains.medicos.dtos.DadosListagemMedicoDTO;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

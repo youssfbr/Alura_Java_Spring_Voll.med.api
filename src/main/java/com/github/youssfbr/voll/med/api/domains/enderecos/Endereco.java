@@ -1,4 +1,4 @@
-package com.github.youssfbr.voll.med.api.enderecos;
+package com.github.youssfbr.voll.med.api.domains.enderecos;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

@@ -1,6 +1,6 @@
-package com.github.youssfbr.voll.med.api.pacientes;
+package com.github.youssfbr.voll.med.api.domains.pacientes;
 
-import com.github.youssfbr.voll.med.api.enderecos.DadosEnderecoDTO;
+import com.github.youssfbr.voll.med.api.domains.enderecos.DadosEnderecoDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

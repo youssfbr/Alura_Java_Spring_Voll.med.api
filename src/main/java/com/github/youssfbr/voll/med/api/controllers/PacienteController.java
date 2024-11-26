@@ -1,6 +1,6 @@
 package com.github.youssfbr.voll.med.api.controllers;
 
-import com.github.youssfbr.voll.med.api.pacientes.*;
+import com.github.youssfbr.voll.med.api.domains.pacientes.*;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

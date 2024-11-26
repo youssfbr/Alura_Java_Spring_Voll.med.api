@@ -1,4 +1,4 @@
-package com.github.youssfbr.voll.med.api.pacientes;
+package com.github.youssfbr.voll.med.api.domains.pacientes;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

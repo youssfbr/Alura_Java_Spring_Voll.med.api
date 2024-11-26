@@ -1,6 +1,6 @@
-package com.github.youssfbr.voll.med.api.pacientes;
+package com.github.youssfbr.voll.med.api.domains.pacientes;
 
-import com.github.youssfbr.voll.med.api.enderecos.Endereco;
+import com.github.youssfbr.voll.med.api.domains.enderecos.Endereco;
 
 public record DadosDetalhamentoPacienteDTO(
         Long id ,

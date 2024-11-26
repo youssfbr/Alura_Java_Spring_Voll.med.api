@@ -1,4 +1,4 @@
-package com.github.youssfbr.voll.med.api.pacientes;
+package com.github.youssfbr.voll.med.api.domains.pacientes;
 
 public record DadosListagemPacienteDTO(
 
