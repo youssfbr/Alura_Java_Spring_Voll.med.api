@@ -32,6 +32,13 @@ public class PacienteService implements IPacienteService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public DadosDetalhamentoPacienteDTO detalhar(Long id) {
+        final Paciente paciente = pacienteRepository.getReferenceById(id);
+        return new DadosDetalhamentoPacienteDTO(paciente);
+    }
+
+    @Override
     @Transactional
     public DadosDetalhamentoPacienteDTO cadastrar(DadosCadastroPacienteDTO dados) {
         final Paciente pacienteCriado = pacienteRepository.save(new Paciente(dados));

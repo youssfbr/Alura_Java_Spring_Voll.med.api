@@ -10,6 +10,7 @@ public interface IPacienteService {
 
     Page<DadosListagemPacienteDTO> paginar(Pageable paginacao);
     List<DadosListagemPacienteDTO> listar();
+    DadosDetalhamentoPacienteDTO detalhar(Long id);
     DadosDetalhamentoPacienteDTO cadastrar(DadosCadastroPacienteDTO dados);
     DadosDetalhamentoPacienteDTO atualizarInformacoes(@Valid DadosAtualizacaoPacienteDTO dados);
     void remover(Long id);
