@@ -12,7 +12,7 @@ public record DadosCadastroPacienteDTO(
         @NotBlank @Email String email ,
         @NotBlank String whatsapp ,
         String telefone ,
-        @NotBlank @Pattern(regexp = "\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}") String cpf ,
+        @NotBlank @Pattern(regexp = "\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}" , message = "deve ser válido!") String cpf ,
         @NotNull @Valid DadosEnderecoDTO endereco
 ) {
 }
