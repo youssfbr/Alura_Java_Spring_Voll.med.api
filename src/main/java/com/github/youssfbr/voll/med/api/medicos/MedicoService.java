@@ -1,5 +1,9 @@
 package com.github.youssfbr.voll.med.api.medicos;
 
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosAtualizacaoMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosCadastroMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosDetalhamentoMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosListagemMedicoDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -33,15 +37,17 @@ public class MedicoService implements IMedicoService {
 
     @Override
     @Transactional
-    public void cadastrar(DadosCadastroMedicoDTO dados) {
-        medicoRepository.save(new Medico(dados));
+    public DadosDetalhamentoMedicoDTO cadastrar(DadosCadastroMedicoDTO dados) {
+        final Medico medicoCriado = medicoRepository.save(new Medico(dados));
+        return new DadosDetalhamentoMedicoDTO(medicoCriado);
     }
 
     @Override
     @Transactional
-    public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
+    public DadosDetalhamentoMedicoDTO atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
         final Medico medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+        return new DadosDetalhamentoMedicoDTO(medico);
     }
 
     @Override

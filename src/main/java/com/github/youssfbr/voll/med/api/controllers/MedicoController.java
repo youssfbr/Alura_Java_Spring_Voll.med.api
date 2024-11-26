@@ -1,16 +1,19 @@
 package com.github.youssfbr.voll.med.api.controllers;
 
-import com.github.youssfbr.voll.med.api.medicos.DadosAtualizacaoMedicoDTO;
-import com.github.youssfbr.voll.med.api.medicos.DadosCadastroMedicoDTO;
-import com.github.youssfbr.voll.med.api.medicos.DadosListagemMedicoDTO;
 import com.github.youssfbr.voll.med.api.medicos.IMedicoService;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosAtualizacaoMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosCadastroMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosDetalhamentoMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosListagemMedicoDTO;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -34,17 +37,23 @@ public class MedicoController {
     }
 
     @PostMapping
-    public void cadastrar(@RequestBody @Valid DadosCadastroMedicoDTO dados) {
-        medicoService.cadastrar(dados);
+    public  ResponseEntity<DadosDetalhamentoMedicoDTO> cadastrar(@RequestBody @Valid DadosCadastroMedicoDTO dados) {
+        final DadosDetalhamentoMedicoDTO medicoCadastrado = medicoService.cadastrar(dados);
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}").buildAndExpand(medicoCadastrado.id()).toUri();
+
+        return ResponseEntity.created(uri).body(medicoCadastrado);
     }
 
     @PutMapping
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
-        medicoService.atualizarInformacoes(dados);
+    public  ResponseEntity<DadosDetalhamentoMedicoDTO> atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
+        return ResponseEntity.ok(medicoService.atualizarInformacoes(dados));
     }
 
     @DeleteMapping("/{id}")
-    public void remover(@PathVariable Long id) {
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
         medicoService.remover(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -1,6 +1,7 @@
-package com.github.youssfbr.voll.med.api.medicos;
+package com.github.youssfbr.voll.med.api.medicos.dtos;
 
 import com.github.youssfbr.voll.med.api.enderecos.DadosEnderecoDTO;
+import com.github.youssfbr.voll.med.api.medicos.Especialidade;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 

@@ -1,4 +1,7 @@
-package com.github.youssfbr.voll.med.api.medicos;
+package com.github.youssfbr.voll.med.api.medicos.dtos;
+
+import com.github.youssfbr.voll.med.api.medicos.Especialidade;
+import com.github.youssfbr.voll.med.api.medicos.Medico;
 
 public record DadosListagemMedicoDTO(
 

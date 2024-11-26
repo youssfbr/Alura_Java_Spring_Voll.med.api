@@ -1,6 +1,8 @@
 package com.github.youssfbr.voll.med.api.medicos;
 
 import com.github.youssfbr.voll.med.api.enderecos.Endereco;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosAtualizacaoMedicoDTO;
+import com.github.youssfbr.voll.med.api.medicos.dtos.DadosCadastroMedicoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
