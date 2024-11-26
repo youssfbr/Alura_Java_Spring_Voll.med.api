@@ -40,9 +40,10 @@ public class PacienteService implements IPacienteService {
 
     @Override
     @Transactional
-    public void atualizarInformacoes(DadosAtualizacaoPacienteDTO dados) {
+    public DadosDetalhamentoPacienteDTO atualizarInformacoes(DadosAtualizacaoPacienteDTO dados) {
         var paciente = pacienteRepository.getReferenceById(dados.id());
         paciente.atualizarInformacoes(dados);
+        return new DadosDetalhamentoPacienteDTO(paciente);
     }
 
     @Override

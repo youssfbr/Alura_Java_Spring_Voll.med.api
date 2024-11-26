@@ -44,8 +44,8 @@ public class PacienteController {
     }
 
     @PutMapping
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoPacienteDTO dados) {
-        pacienteService.atualizarInformacoes(dados);
+    public ResponseEntity<DadosDetalhamentoPacienteDTO> atualizar(@RequestBody @Valid DadosAtualizacaoPacienteDTO dados) {
+        return ResponseEntity.ok(pacienteService.atualizarInformacoes(dados));
     }
 
     @DeleteMapping("/{id}")
