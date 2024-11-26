@@ -27,13 +27,19 @@ public class MedicoController {
     }
 
     @GetMapping("/pagina")
-    public ResponseEntity<Page<DadosListagemMedicoDTO>> paginar(@PageableDefault(size = 10 , page = 0 , sort = {"nome"}) Pageable pageable) {
+    public ResponseEntity<Page<DadosListagemMedicoDTO>> paginar(
+            @PageableDefault(size = 10 , page = 0 , sort = {"nome"}) Pageable pageable) {
         return ResponseEntity.ok(medicoService.paginar(pageable));
     }
 
     @GetMapping
     public ResponseEntity<List<DadosListagemMedicoDTO>> listar() {
         return ResponseEntity.ok(medicoService.listar());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DadosDetalhamentoMedicoDTO> detalhar(@PathVariable Long id) {
+        return ResponseEntity.ok(medicoService.detalhar(id));
     }
 
     @PostMapping
@@ -53,7 +59,7 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
-        medicoService.remover(id);
+        medicoService.excluir(id);
         return ResponseEntity.noContent().build();
     }
 }

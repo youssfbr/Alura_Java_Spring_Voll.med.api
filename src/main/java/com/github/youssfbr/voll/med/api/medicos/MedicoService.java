@@ -36,6 +36,13 @@ public class MedicoService implements IMedicoService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public DadosDetalhamentoMedicoDTO detalhar(Long id) {
+        final Medico medico = medicoRepository.getReferenceById(id);
+        return new DadosDetalhamentoMedicoDTO(medico);
+    }
+
+    @Override
     @Transactional
     public DadosDetalhamentoMedicoDTO cadastrar(DadosCadastroMedicoDTO dados) {
         final Medico medicoCriado = medicoRepository.save(new Medico(dados));
@@ -52,7 +59,7 @@ public class MedicoService implements IMedicoService {
 
     @Override
     @Transactional
-    public void remover(Long id) {
+    public void excluir(Long id) {
         final Medico medico = medicoRepository.getReferenceById(id);
         medico.inativar();
     }

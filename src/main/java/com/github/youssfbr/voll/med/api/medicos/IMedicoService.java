@@ -13,7 +13,8 @@ public interface IMedicoService {
 
     Page<DadosListagemMedicoDTO> paginar(Pageable paginacao);
     List<DadosListagemMedicoDTO> listar();
+    DadosDetalhamentoMedicoDTO detalhar(Long id);
     DadosDetalhamentoMedicoDTO cadastrar(DadosCadastroMedicoDTO dados);
     DadosDetalhamentoMedicoDTO atualizarInformacoes(DadosAtualizacaoMedicoDTO dados);
-    void remover(Long id);
+    void excluir(Long id);
 }
