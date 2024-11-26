@@ -33,8 +33,9 @@ public class PacienteService implements IPacienteService {
 
     @Override
     @Transactional
-    public void cadastrar(DadosCadastroPacienteDTO dados) {
-        pacienteRepository.save(new Paciente(dados));
+    public DadosDetalhamentoPacienteDTO cadastrar(DadosCadastroPacienteDTO dados) {
+        final Paciente pacienteCriado = pacienteRepository.save(new Paciente(dados));
+        return new DadosDetalhamentoPacienteDTO(pacienteCriado);
     }
 
     @Override
